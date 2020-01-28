@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from Helper import loadDataFromNumpyFile, saveToNumpyFile
+from Helper import load_data_from_numpy_file, save_to_numpy_file
 
 basePathToSoundFiles = "./data/genres"
 
@@ -9,14 +9,14 @@ trainingTestSetRatio = 0.8
 
 
 class TargetValue:
-    def __init__(self, name, targetValue):
+    def __init__(self, name, target_value):
         self.name = name
-        self.targetValue = targetValue
+        self.targetValue = target_value
 
-    def getTargetValue(self):
+    def get_target_value(self):
         return self.targetValue
 
-    def getName(self):
+    def get_name(self):
         return self.name
 
 

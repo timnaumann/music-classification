@@ -8,9 +8,9 @@ from scipy.io import wavfile
 import os
 import math
 
-from Helper import getListOfPreprocessedSongs, removeFiles, loadDataFromNumpyFile
+from Helper import get_list_of_preprocessed_songs, remove_files, load_data_from_numpy_file
 
-preprocessedSongs = getListOfPreprocessedSongs()
+preprocessedSongs = get_list_of_preprocessed_songs()
 
 # for file in preprocessedSongs:
 #     processedSong = np.array(loadDataFromNumpyFile(file))

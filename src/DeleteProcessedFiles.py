@@ -8,8 +8,8 @@ from scipy.io import wavfile
 import os
 import math
 
-from Helper import getListOfPreprocessedSongs, removeFiles, removeFiles
+from Helper import get_list_of_preprocessed_songs, remove_files, remove_files
 
-preprocessedSongs = getListOfPreprocessedSongs()
+preprocessedSongs = get_list_of_preprocessed_songs()
 
-removeFiles(preprocessedSongs)
+remove_files(preprocessedSongs)

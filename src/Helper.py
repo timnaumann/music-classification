@@ -6,35 +6,37 @@ basePathToSoundFiles = "./data/genres"
 # 80% test set, 10% validation set, 10% test set
 trainingTestSetRatio = 0.8
 
-def getListOfPreprocessedSongs():
+
+
+def get_list_of_preprocessed_songs():
     listOfFiles = []
-    genres = getGenresFromData()
+    genres = get_genres_from_data()
     for directory in genres:
         directoryPath = os.path.join(basePathToSoundFiles,directory)
         soundFiles = os.listdir(directoryPath)
         for file in soundFiles:
-            if isPreprocessedSongFile(file):
+            if is_preprocessed_song_file(file):
                 listOfFiles.append(os.path.join(directoryPath, file))
     return listOfFiles
 
 
 
-def removeFiles(files):
+def remove_files(files):
     for file in files:
         os.remove(file)
 
-def saveToNumpyFile(fileName, values):
+def save_to_numpy_file(fileName, values):
     np.savez(fileName, values)
 
-def loadDataFromNumpyFile(fileName):
+def load_data_from_numpy_file(fileName):
     container = np.load(fileName, allow_pickle=True)
     return [container[key] for key in container]
 
-def isWavFile(file):
+def is_wav_file(file):
     return file.endswith('.wav')
 
-def isPreprocessedSongFile(file):
+def is_preprocessed_song_file(file):
     return file.endswith('.npz')
 
-def getGenresFromData():
+def get_genres_from_data():
     return [name for name in os.listdir(basePathToSoundFiles) if os.path.isdir(os.path.join(basePathToSoundFiles,name))]
