@@ -53,7 +53,6 @@ class Model:
         return self.model.predict(input_values)
 
     def evaluate(self, test_set):
-        self.__create_model_by_version(self.version)
         self.model.load_weights(self.checkpoint_file_path)
 
         processed_test_set = self.__process_sets(test_set)
@@ -90,7 +89,7 @@ class Model:
         model.add(layers.Conv2D(128, (4, 1), activation='relu'))
         model.add(layers.MaxPooling2D((2, 1)))
         model.add(layers.Conv2D(256, (4, 1), activation='relu'))
-        model.add(layers.AveragePooling2D((26, 1)))
+        model.add(layers.MaxPooling2D((26, 1)))
 
         model.add(layers.Flatten())
         model.add(layers.Dense(300, activation='relu'))
@@ -111,8 +110,7 @@ class Model:
         model.add(layers.MaxPooling2D((2, 1)))
         model.add(layers.Conv2D(128, (4, 1), activation='relu'))
         model.add(layers.Conv2D(256, (4, 1), activation='relu'))
-        # model.add(layers.MaxPooling2D((2, 1)))
-        model.add(layers.AveragePooling2D((55, 1)))
+        model.add(layers.MaxPooling2D((55, 1)))
 
         model.add(layers.Flatten())
         # model.add(layers.Dense(300, activation='relu'))

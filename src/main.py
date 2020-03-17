@@ -4,12 +4,11 @@ import Globals
 from sklearn.model_selection import KFold
 
 generator = SetGenerator()
-
-training_set = generator.get_training_set()
 test_set = generator.get_test_set()
 
 
 def train_with_cross_validation(model):
+    training_set = generator.get_training_set()
     for train_index, validation_index in KFold(5, shuffle=True).split(training_set):
         training_subset = training_set[train_index]
         validation_subset = training_set[validation_index]
@@ -18,7 +17,7 @@ def train_with_cross_validation(model):
 
 
 # create model and train it
-model = Model(Globals.MODEL_VERSION_2)
+model = Model(Globals.MODEL_VERSION_1)
 train_with_cross_validation(model)
 
 # if you want to load an already trained model use
